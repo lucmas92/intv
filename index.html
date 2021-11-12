@@ -7,9 +7,19 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <style>
+        nav{
+            position:sticky;
+            top:0;
+        }
+    </style>
 </head>
 <body class="">
-
+<nav class="sticky w-full bg-white shadow bg-gray-700">
+    <div class="container flex items-center justify-center p-3 mx-auto text-gray-200 capitalize">
+        <h3 class="text-xl">InTV</h3>
+    </div>
+</nav>
 
 <section class="text-gray-600 bg-gray-200 body-font overflow-hidden w-full">
     <div class="container px-3 pt-8 mx-auto" x-data="{ openTab: 1 }">
@@ -378,40 +388,17 @@
     </div>
 </section>
 <div class="bg-gray-700 flex flex-col justify-center p-12">
-    <!--    <div class="border-b flex container space-x-2 pb-8 mb-8">-->
-    <!--        <div class="flex-1 p-4 text-gray-200">-->
-    <!--            <h4 class="mb-3 font-bold">Titolo</h4>-->
-    <!--            <ul>-->
-    <!--                <li>1</li>-->
-    <!--                <li>2</li>-->
-    <!--            </ul>-->
-
-    <!--        </div>-->
-    <!--        <div class="flex-1 p-4 text-gray-200">-->
-    <!--            <h4 class="mb-3 font-bold">Titolo</h4>-->
-    <!--            <ul>-->
-    <!--                <li>1</li>-->
-    <!--                <li>2</li>-->
-    <!--            </ul>-->
-
-    <!--        </div>-->
-    <!--        <div class="flex-1 p-4 text-gray-200">-->
-    <!--            <h4 class="mb-3 font-bold">Titolo</h4>-->
-    <!--            <ul>-->
-    <!--                <li>1</li>-->
-    <!--                <li>2</li>-->
-    <!--            </ul>-->
-
-    <!--        </div>-->
-    <!--    </div>-->
     <div class="flex container flex-col lg:flex-row lg:space-x-12">
         <div class="flex w-full lg:w-3/5 py-4 lg:py-12 flex-col text-sm text-gray-400">
-            <p class="font-bold">
-                &copy; 2021 Company. All rights reserved. | All rights reserved
+            <p class="font-bold" x-data="{year: new Date().getFullYear()}">
+                &copy; <span x-text="year"></span> Company. All rights reserved. | All rights reserved
             </p>
             <p>
                 Our Website uses cookies from Google services. By continuing to use this site you are agreeing to our
-                use of cookies. Find out more by viewing our <a href="#" class="font-bold"> Privacy Policy</a>
+                use of cookies.
+            </p>
+            <p>
+                Find out more by viewing our <a href="#" class="font-bold"> Privacy Policy</a>
             </p>
         </div>
         <div class="flex-1 pb-4 lg:py-12">
