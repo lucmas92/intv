@@ -63,9 +63,9 @@
         </section>
     </div>
 </nav>
-
+<!--RAI 1-->
 <section class="text-gray-600 bg-gray-200 body-font overflow-hidden w-full">
-    <div class="container px-3 pt-8 mx-auto" x-data="{ openTab: 1 }">
+    <div class="container px-3 pt-8 mx-auto" x-data="{ openTab: 1, programmi: rai1() }">
         <div class="lg:w-4/5 mx-auto flex flex-wrap">
             <div class="lg:w-1/2 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
                 <div class="flex justify-between">
@@ -87,83 +87,22 @@
                         Details
                     </button>
                 </div>
-                <div x-show="openTab === 2" class="overflow-scroll h-80 lg:h-40 pr-3">
-                    <div class="flex border-t border-gray-400 py-2">
-                        <span class="text-gray-500">18:45</span>
-                        <span class="ml-auto text-gray-900">L'Eredità</span>
-                    </div>
-                    <div class="flex border-t border-gray-400 py-2">
-                        <span class="text-gray-500">20:00</span>
-                        <span class="ml-auto text-gray-900">Tg1 NOTIZIARIO.</span>
-                    </div>
-                    <div class="flex border-t border-gray-400 py-2">
-                        <span class="text-gray-500">21:20</span>
-                        <span class="ml-auto text-gray-900">Soliti Ignoti - Il ritorno</span>
-                    </div>
-                    <div class="flex border-t border-gray-400 py-2">
-                        <span class="text-gray-500">23:00</span>
-                        <span class="ml-auto text-gray-900">Un professore St 1 Ep 1 - Socrate</span>
-                    </div>
-                    <div class="flex border-t border-gray-400 py-2">
-                        <span class="text-gray-500">23:40</span>
-                        <span class="ml-auto text-gray-900">Un professore St 1 Ep 2 - Roland Barthes</span>
-                    </div>
-                    <div class="flex border-t border-gray-400 py-2">
-                        <span class="text-gray-500">23:55</span>
-                        <span class="ml-auto text-gray-900">Porta a porta</span>
-                    </div>
-                    <div class="flex border-t border-gray-400 py-2">
-                        <span class="text-gray-500">18:45</span>
-                        <span class="ml-auto text-gray-900">L'Eredità</span>
-                    </div>
-                    <div class="flex border-t border-gray-400 py-2">
-                        <span class="text-gray-500">20:00</span>
-                        <span class="ml-auto text-gray-900">Tg1 NOTIZIARIO.</span>
-                    </div>
-                    <div class="flex border-t border-gray-400 py-2">
-                        <span class="text-gray-500">21:20</span>
-                        <span class="ml-auto text-gray-900">Soliti Ignoti - Il ritorno</span>
-                    </div>
-                    <div class="flex border-t border-gray-400 py-2">
-                        <span class="text-gray-500">23:00</span>
-                        <span class="ml-auto text-gray-900">Un professore St 1 Ep 1 - Socrate</span>
-                    </div>
-                    <div class="flex border-t border-gray-400 py-2">
-                        <span class="text-gray-500">23:40</span>
-                        <span class="ml-auto text-gray-900">Un professore St 1 Ep 2 - Roland Barthes</span>
-                    </div>
-                    <div class="flex border-t border-b mb-6 border-gray-400 py-2">
-                        <span class="text-gray-500">23:55</span>
-                        <span class="ml-auto text-gray-900">Porta a porta</span>
-                    </div>
-
+                <div x-show="openTab === 2" class="overflow-scroll h-80 lg:h-64 lg:mb-6 pr-3">
+                    <template x-for="programma in programmi['epg']">
+                        <div class="flex border-t border-gray-400 py-2">
+                            <span class="text-gray-500" x-text="programma['orainizio']">18:45</span>
+                            <span class="ml-auto text-gray-900" x-text="programma['titolo']"></span>
+                        </div>
+                    </template>
                 </div>
                 <div x-show="openTab === 3" class="overflow-scroll h-0 pr-3"></div>
                 <div x-show="openTab === 1" class="overflow-scroll h-32 pr-3">
-                    <div class="flex border-t border-gray-400 py-2">
-                        <span class="text-gray-500">18:45</span>
-                        <span class="ml-auto text-gray-900">L'Eredità</span>
-                    </div>
-                    <div class="flex border-t border-gray-400 py-2">
-                        <span class="text-gray-500">20:00</span>
-                        <span class="ml-auto text-gray-900">Tg1 NOTIZIARIO.</span>
-                    </div>
-                    <div class="flex border-t border-gray-400 py-2">
-                        <span class="text-gray-500">21:20</span>
-                        <span class="ml-auto text-gray-900">Soliti Ignoti - Il ritorno</span>
-                    </div>
-                    <div class="flex border-t border-gray-400 py-2">
-                        <span class="text-gray-500">23:00</span>
-                        <span class="ml-auto text-gray-900">Un professore St 1 Ep 1 - Socrate</span>
-                    </div>
-                    <div class="flex border-t border-gray-400 py-2">
-                        <span class="text-gray-500">23:40</span>
-                        <span class="ml-auto text-gray-900">Un professore St 1 Ep 2 - Roland Barthes</span>
-                    </div>
-                    <div class="flex border-t border-b mb-6 border-gray-400 py-2">
-                        <span class="text-gray-500">23:55</span>
-                        <span class="ml-auto text-gray-900">Porta a porta</span>
-                    </div>
+                    <template x-for="programma in programmi['epg'].slice(-6)">
+                        <div class="flex border-t border-gray-400 py-2">
+                            <span class="text-gray-500" x-text="programma['orainizio']">18:45</span>
+                            <span class="ml-auto text-gray-900" x-text="programma['titolo']"></span>
+                        </div>
+                    </template>
                 </div>
             </div>
             <div :class="openTab === 3 ? 'h-80' : ''"
@@ -193,14 +132,14 @@
                             src="https://ac.neodatagroup.com/img_uploads/354/22_643354_7_Loyalty_masthead_NonABB_Rep.gif"
                             alt="autopromo-hp"></a>
 </div>
-
+<!--RAI 2-->
 <section class="text-gray-600 bg-gray-100 body-font overflow-hidden w-full">
-    <div class="container px-3 pt-8 mx-auto" x-data="{ openTab: 1 }">
+    <div class="container px-3 pt-8 mx-auto" x-data="{ openTab: 1, programmi: rai2() }">
         <div class="lg:w-4/5 mx-auto flex flex-wrap">
             <div class="lg:w-1/2 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
                 <div class="flex justify-between">
                     <h1 class="text-gray-900 text-3xl title-font font-medium mb-4">Rai 2</h1>
-                    <img src="https://banner2.cleanpng.com/20180526/ov/kisspng-rai-2-television-rai-4-logo-5b0936f38f8303.1237761215273305475878.jpg"
+                    <img src="https://www.fondazionecralessandria.it/wp-content/uploads/2020/02/rai1.png"
                          class="h-8" alt="">
                 </div>
                 <div class="flex mb-4">
@@ -217,83 +156,22 @@
                         Details
                     </button>
                 </div>
-                <div x-show="openTab === 2" class="overflow-scroll h-80 lg:h-40 pr-3">
-                    <div class="flex border-t border-gray-400 py-2">
-                        <span class="text-gray-500">18:45</span>
-                        <span class="ml-auto text-gray-900">L'Eredità</span>
-                    </div>
-                    <div class="flex border-t border-gray-400 py-2">
-                        <span class="text-gray-500">20:00</span>
-                        <span class="ml-auto text-gray-900">Tg1 NOTIZIARIO.</span>
-                    </div>
-                    <div class="flex border-t border-gray-400 py-2">
-                        <span class="text-gray-500">21:20</span>
-                        <span class="ml-auto text-gray-900">Soliti Ignoti - Il ritorno</span>
-                    </div>
-                    <div class="flex border-t border-gray-400 py-2">
-                        <span class="text-gray-500">23:00</span>
-                        <span class="ml-auto text-gray-900">Un professore St 1 Ep 1 - Socrate</span>
-                    </div>
-                    <div class="flex border-t border-gray-400 py-2">
-                        <span class="text-gray-500">23:40</span>
-                        <span class="ml-auto text-gray-900">Un professore St 1 Ep 2 - Roland Barthes</span>
-                    </div>
-                    <div class="flex border-t border-gray-400 py-2">
-                        <span class="text-gray-500">23:55</span>
-                        <span class="ml-auto text-gray-900">Porta a porta</span>
-                    </div>
-                    <div class="flex border-t border-gray-400 py-2">
-                        <span class="text-gray-500">18:45</span>
-                        <span class="ml-auto text-gray-900">L'Eredità</span>
-                    </div>
-                    <div class="flex border-t border-gray-400 py-2">
-                        <span class="text-gray-500">20:00</span>
-                        <span class="ml-auto text-gray-900">Tg1 NOTIZIARIO.</span>
-                    </div>
-                    <div class="flex border-t border-gray-400 py-2">
-                        <span class="text-gray-500">21:20</span>
-                        <span class="ml-auto text-gray-900">Soliti Ignoti - Il ritorno</span>
-                    </div>
-                    <div class="flex border-t border-gray-400 py-2">
-                        <span class="text-gray-500">23:00</span>
-                        <span class="ml-auto text-gray-900">Un professore St 1 Ep 1 - Socrate</span>
-                    </div>
-                    <div class="flex border-t border-gray-400 py-2">
-                        <span class="text-gray-500">23:40</span>
-                        <span class="ml-auto text-gray-900">Un professore St 1 Ep 2 - Roland Barthes</span>
-                    </div>
-                    <div class="flex border-t border-b mb-6 border-gray-400 py-2">
-                        <span class="text-gray-500">23:55</span>
-                        <span class="ml-auto text-gray-900">Porta a porta</span>
-                    </div>
-
+                <div x-show="openTab === 2" class="overflow-scroll h-80 lg:h-64 lg:mb-6 pr-3">
+                    <template x-for="programma in programmi['epg']">
+                        <div class="flex border-t border-gray-400 py-2">
+                            <span class="text-gray-500" x-text="programma['orainizio']">18:45</span>
+                            <span class="ml-auto text-gray-900" x-text="programma['titolo']"></span>
+                        </div>
+                    </template>
                 </div>
                 <div x-show="openTab === 3" class="overflow-scroll h-0 pr-3"></div>
                 <div x-show="openTab === 1" class="overflow-scroll h-32 pr-3">
-                    <div class="flex border-t border-gray-400 py-2">
-                        <span class="text-gray-500">18:45</span>
-                        <span class="ml-auto text-gray-900">L'Eredità</span>
-                    </div>
-                    <div class="flex border-t border-gray-400 py-2">
-                        <span class="text-gray-500">20:00</span>
-                        <span class="ml-auto text-gray-900">Tg1 NOTIZIARIO.</span>
-                    </div>
-                    <div class="flex border-t border-gray-400 py-2">
-                        <span class="text-gray-500">21:20</span>
-                        <span class="ml-auto text-gray-900">Soliti Ignoti - Il ritorno</span>
-                    </div>
-                    <div class="flex border-t border-gray-400 py-2">
-                        <span class="text-gray-500">23:00</span>
-                        <span class="ml-auto text-gray-900">Un professore St 1 Ep 1 - Socrate</span>
-                    </div>
-                    <div class="flex border-t border-gray-400 py-2">
-                        <span class="text-gray-500">23:40</span>
-                        <span class="ml-auto text-gray-900">Un professore St 1 Ep 2 - Roland Barthes</span>
-                    </div>
-                    <div class="flex border-t border-b mb-6 border-gray-400 py-2">
-                        <span class="text-gray-500">23:55</span>
-                        <span class="ml-auto text-gray-900">Porta a porta</span>
-                    </div>
+                    <template x-for="programma in programmi['epg'].slice(-6)">
+                        <div class="flex border-t border-gray-400 py-2">
+                            <span class="text-gray-500" x-text="programma['orainizio']">18:45</span>
+                            <span class="ml-auto text-gray-900" x-text="programma['titolo']"></span>
+                        </div>
+                    </template>
                 </div>
             </div>
             <div :class="openTab === 3 ? 'h-80' : ''"
@@ -316,19 +194,15 @@
         </div>
     </div>
 </section>
-<div class="promo flex justify-center bg-gray-200 ">
-    <a href="https://d.adagiof3.repubblica.it/ad/clk.jsp?x=459559.643354.1063.873401.-1.ksg_nonabbonato^https_www_repubblica_it_^taxonomy_repubblica-homepage^pwpagetracked_false^pwuserauthorized_false^pwcounterlimit_0^pwuserlogged_false^pwuserconsumed_0^pwcounterexceed_false^pwauthinfo_freepageviews^pwcounterexceedeq_false^idwt_^abtesting_97^device_desktop^panel_2.2.22.1.11180.1.-1.-1.-1..-1.0.%7CK%3Aksg_nonabbonato%7C..&amp;link=https%3A%2F%2Fsmile.gedidigital.it%2F"
-       target="_blank"><img style="width:970px;height:250px;position:relative;" width="970" height="250"
-                            src="https://ac.neodatagroup.com/img_uploads/354/22_643354_7_Loyalty_masthead_NonABB_Rep.gif"
-                            alt="autopromo-hp"></a>
-</div>
+
+<!--RAI 3-->
 <section class="text-gray-600 bg-gray-200 body-font overflow-hidden w-full">
-    <div class="container px-3 pt-8 mx-auto" x-data="{ openTab: 1 }">
+    <div class="container px-3 pt-8 mx-auto" x-data="{ openTab: 1, programmi: rai3() }">
         <div class="lg:w-4/5 mx-auto flex flex-wrap">
             <div class="lg:w-1/2 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
                 <div class="flex justify-between">
                     <h1 class="text-gray-900 text-3xl title-font font-medium mb-4">Rai 3</h1>
-                    <img src="https://www.seekpng.com/png/detail/363-3639192_rai-3-hd-rai-3-logo-png.png"
+                    <img src="https://www.fondazionecralessandria.it/wp-content/uploads/2020/02/rai1.png"
                          class="h-8" alt="">
                 </div>
                 <div class="flex mb-4">
@@ -345,83 +219,22 @@
                         Details
                     </button>
                 </div>
-                <div x-show="openTab === 2" class="overflow-scroll h-80 lg:h-40 pr-3">
-                    <div class="flex border-t border-gray-400 py-2">
-                        <span class="text-gray-500">18:45</span>
-                        <span class="ml-auto text-gray-900">L'Eredità</span>
-                    </div>
-                    <div class="flex border-t border-gray-400 py-2">
-                        <span class="text-gray-500">20:00</span>
-                        <span class="ml-auto text-gray-900">Tg1 NOTIZIARIO.</span>
-                    </div>
-                    <div class="flex border-t border-gray-400 py-2">
-                        <span class="text-gray-500">21:20</span>
-                        <span class="ml-auto text-gray-900">Soliti Ignoti - Il ritorno</span>
-                    </div>
-                    <div class="flex border-t border-gray-400 py-2">
-                        <span class="text-gray-500">23:00</span>
-                        <span class="ml-auto text-gray-900">Un professore St 1 Ep 1 - Socrate</span>
-                    </div>
-                    <div class="flex border-t border-gray-400 py-2">
-                        <span class="text-gray-500">23:40</span>
-                        <span class="ml-auto text-gray-900">Un professore St 1 Ep 2 - Roland Barthes</span>
-                    </div>
-                    <div class="flex border-t border-gray-400 py-2">
-                        <span class="text-gray-500">23:55</span>
-                        <span class="ml-auto text-gray-900">Porta a porta</span>
-                    </div>
-                    <div class="flex border-t border-gray-400 py-2">
-                        <span class="text-gray-500">18:45</span>
-                        <span class="ml-auto text-gray-900">L'Eredità</span>
-                    </div>
-                    <div class="flex border-t border-gray-400 py-2">
-                        <span class="text-gray-500">20:00</span>
-                        <span class="ml-auto text-gray-900">Tg1 NOTIZIARIO.</span>
-                    </div>
-                    <div class="flex border-t border-gray-400 py-2">
-                        <span class="text-gray-500">21:20</span>
-                        <span class="ml-auto text-gray-900">Soliti Ignoti - Il ritorno</span>
-                    </div>
-                    <div class="flex border-t border-gray-400 py-2">
-                        <span class="text-gray-500">23:00</span>
-                        <span class="ml-auto text-gray-900">Un professore St 1 Ep 1 - Socrate</span>
-                    </div>
-                    <div class="flex border-t border-gray-400 py-2">
-                        <span class="text-gray-500">23:40</span>
-                        <span class="ml-auto text-gray-900">Un professore St 1 Ep 2 - Roland Barthes</span>
-                    </div>
-                    <div class="flex border-t border-b mb-6 border-gray-400 py-2">
-                        <span class="text-gray-500">23:55</span>
-                        <span class="ml-auto text-gray-900">Porta a porta</span>
-                    </div>
-
+                <div x-show="openTab === 2" class="overflow-scroll h-80 lg:h-64 lg:mb-6 pr-3">
+                    <template x-for="programma in programmi['epg']">
+                        <div class="flex border-t border-gray-400 py-2">
+                            <span class="text-gray-500" x-text="programma['orainizio']">18:45</span>
+                            <span class="ml-auto text-gray-900" x-text="programma['titolo']"></span>
+                        </div>
+                    </template>
                 </div>
                 <div x-show="openTab === 3" class="overflow-scroll h-0 pr-3"></div>
                 <div x-show="openTab === 1" class="overflow-scroll h-32 pr-3">
-                    <div class="flex border-t border-gray-400 py-2">
-                        <span class="text-gray-500">18:45</span>
-                        <span class="ml-auto text-gray-900">L'Eredità</span>
-                    </div>
-                    <div class="flex border-t border-gray-400 py-2">
-                        <span class="text-gray-500">20:00</span>
-                        <span class="ml-auto text-gray-900">Tg1 NOTIZIARIO.</span>
-                    </div>
-                    <div class="flex border-t border-gray-400 py-2">
-                        <span class="text-gray-500">21:20</span>
-                        <span class="ml-auto text-gray-900">Soliti Ignoti - Il ritorno</span>
-                    </div>
-                    <div class="flex border-t border-gray-400 py-2">
-                        <span class="text-gray-500">23:00</span>
-                        <span class="ml-auto text-gray-900">Un professore St 1 Ep 1 - Socrate</span>
-                    </div>
-                    <div class="flex border-t border-gray-400 py-2">
-                        <span class="text-gray-500">23:40</span>
-                        <span class="ml-auto text-gray-900">Un professore St 1 Ep 2 - Roland Barthes</span>
-                    </div>
-                    <div class="flex border-t border-b mb-6 border-gray-400 py-2">
-                        <span class="text-gray-500">23:55</span>
-                        <span class="ml-auto text-gray-900">Porta a porta</span>
-                    </div>
+                    <template x-for="programma in programmi['epg'].slice(-6)">
+                        <div class="flex border-t border-gray-400 py-2">
+                            <span class="text-gray-500" x-text="programma['orainizio']">18:45</span>
+                            <span class="ml-auto text-gray-900" x-text="programma['titolo']"></span>
+                        </div>
+                    </template>
                 </div>
             </div>
             <div :class="openTab === 3 ? 'h-80' : ''"
@@ -444,14 +257,14 @@
         </div>
     </div>
 </section>
-<div class="promo flex justify-center bg-gray-200 ">
-    <a href="https://d.adagiof3.repubblica.it/ad/clk.jsp?x=459559.643354.1063.873401.-1.ksg_nonabbonato^https_www_repubblica_it_^taxonomy_repubblica-homepage^pwpagetracked_false^pwuserauthorized_false^pwcounterlimit_0^pwuserlogged_false^pwuserconsumed_0^pwcounterexceed_false^pwauthinfo_freepageviews^pwcounterexceedeq_false^idwt_^abtesting_97^device_desktop^panel_2.2.22.1.11180.1.-1.-1.-1..-1.0.%7CK%3Aksg_nonabbonato%7C..&amp;link=https%3A%2F%2Fsmile.gedidigital.it%2F"
-       target="_blank"><img style="width:970px;height:250px;position:relative;" width="970" height="250"
-                            src="https://ac.neodatagroup.com/img_uploads/354/22_643354_7_Loyalty_masthead_NonABB_Rep.gif"
-                            alt="autopromo-hp"></a>
-</div>
 
-<div class="bg-gray-700 flex flex-col justify-center p-12">
+
+
+
+
+
+
+<footer class="bg-gray-700 flex flex-col justify-center p-12">
     <div class="flex container flex-col lg:flex-row lg:space-x-12">
         <div class="flex w-full lg:w-3/5 py-4 lg:py-12 flex-col text-sm text-gray-400">
             <p class="font-bold" x-data="{year: new Date().getFullYear()}">
@@ -472,6 +285,19 @@
             </p>
         </div>
     </div>
-</div>
+</footer>
+<script>
+    function rai1() {
+        return JSON.parse('{"modal_actived":false,"canale":null,"data_1":1636671600,"data_2":null,"epg":[{"titolo":"RAInews24","orainizio":"06:00","orafine":"","id":"","generi":""},{"titolo":"TG1","orainizio":"07:00","orafine":"","id":"","generi":""},{"titolo":"Unomattina","orainizio":"07:10","orafine":"","id":"","generi":""},{"titolo":"TG 1 - L.I.S.","orainizio":"07:30","orafine":"","id":"","generi":""},{"titolo":"Che tempo fa","orainizio":"07:33","orafine":"","id":"","generi":""},{"titolo":"Unomattina","orainizio":"07:35","orafine":"","id":"","generi":""},{"titolo":"Che tempo fa","orainizio":"07:50","orafine":"","id":"","generi":""},{"titolo":"Unomattina","orainizio":"07:52","orafine":"","id":"","generi":""},{"titolo":"TG1","orainizio":"08:00","orafine":"","id":"","generi":""},{"titolo":"Che tempo fa","orainizio":"08:30","orafine":"","id":"","generi":""},{"titolo":"Unomattina","orainizio":"08:32","orafine":"","id":"","generi":""},{"titolo":"Rai Parlamento Telegiornale","orainizio":"08:40","orafine":"","id":"","generi":""},{"titolo":"Assisi. S. Maria degli Angeli: incontro di Papa Francesco con i poveri","orainizio":"08:45","orafine":"","id":"","generi":""},{"titolo":"Storie italiane","orainizio":"10:35","orafine":"","id":"","generi":""},{"titolo":"\u00c8 sempre mezzogiorno","orainizio":"11:55","orafine":"","id":"","generi":""},{"titolo":"Telegiornale","orainizio":"13:30","orafine":"","id":"","generi":""},{"titolo":"Oggi \u00e8 un altro giorno","orainizio":"14:00","orafine":"","id":"","generi":""},{"titolo":"Il paradiso delle signore","orainizio":"15:55","orafine":"","id":"","generi":""},{"titolo":"TG1","orainizio":"16:45","orafine":"","id":"","generi":""},{"titolo":"Tg1 Economia","orainizio":"16:55","orafine":"","id":"","generi":""},{"titolo":"Che tempo fa","orainizio":"17:00","orafine":"","id":"","generi":""},{"titolo":"Previsioni sulla viabilit\u00e0","orainizio":"17:02","orafine":"","id":"","generi":""},{"titolo":"La vita in diretta","orainizio":"17:05","orafine":"","id":"","generi":""},{"titolo":"L&#039;Eredit\u00e0","orainizio":"18:45","orafine":"","id":"","generi":""},{"titolo":"Telegiornale","orainizio":"20:00","orafine":"","id":"","generi":""},{"titolo":"Calcio: Qualificazioni Mondiali","orainizio":"20:30","orafine":"","id":"","generi":""},{"titolo":"TG1 Sera","orainizio":"23:00","orafine":"","id":"","generi":""},{"titolo":"TV 7","orainizio":"23:05","orafine":"","id":"","generi":""},{"titolo":"RAInews24","orainizio":"00:10","orafine":"","id":"","generi":""},{"titolo":"Sottovoce","orainizio":"00:45","orafine":"","id":"","generi":""},{"titolo":"Cinematografo","orainizio":"01:15","orafine":"","id":"","generi":""},{"titolo":"RAInews24","orainizio":"02:15","orafine":"","id":"","generi":""}]}');
+    }
+
+    function rai2() {
+        return JSON.parse('{"modal_actived":false,"canale":null,"data_1":1636671600,"data_2":null,"epg":[{"titolo":"Detto fatto","orainizio":"04:30","orafine":"","id":"","generi":""},{"titolo":"Desperate Housewives: I segreti di Wisteria Lane","orainizio":"06:20","orafine":"","id":"","generi":""},{"titolo":"Charlie&#039;s Angels","orainizio":"07:00","orafine":"","id":"","generi":""},{"titolo":"Heartland","orainizio":"07:45","orafine":"","id":"","generi":""},{"titolo":"TG 2","orainizio":"08:30","orafine":"","id":"","generi":""},{"titolo":"Radio Due Social Club","orainizio":"08:45","orafine":"","id":"","generi":""},{"titolo":"Gli Imperdibili","orainizio":"09:55","orafine":"","id":"","generi":""},{"titolo":"Meteo 2","orainizio":"09:58","orafine":"","id":"","generi":""},{"titolo":"TG2 Italia","orainizio":"10:00","orafine":"","id":"","generi":""},{"titolo":"TG 2 Flash","orainizio":"10:55","orafine":"","id":"","generi":""},{"titolo":"Rai TG Sport Giorno","orainizio":"11:00","orafine":"","id":"","generi":""},{"titolo":"I Fatti Vostri","orainizio":"11:10","orafine":"","id":"","generi":""},{"titolo":"TG2 Giorno","orainizio":"13:00","orafine":"","id":"","generi":""},{"titolo":"TG 2 Eat Parade","orainizio":"13:30","orafine":"","id":"","generi":""},{"titolo":"TG2 - S\u00ec, viaggiare","orainizio":"13:50","orafine":"","id":"","generi":""},{"titolo":"Ore 14","orainizio":"14:00","orafine":"","id":"","generi":""},{"titolo":"Detto fatto","orainizio":"15:15","orafine":"","id":"","generi":""},{"titolo":"TG Parlamento","orainizio":"17:45","orafine":"","id":"","generi":""},{"titolo":"Meteo 2","orainizio":"17:55","orafine":"","id":"","generi":""},{"titolo":"TG 2","orainizio":"18:00","orafine":"","id":"","generi":""},{"titolo":"Calcio: Qualificazione Campionati Europei U21","orainizio":"18:15","orafine":"","id":"","generi":""},{"titolo":"TG 2","orainizio":"20:30","orafine":"","id":"","generi":""},{"titolo":"TG2 Post","orainizio":"21:00","orafine":"","id":"","generi":""},{"titolo":"The Good Doctor","orainizio":"21:20","orafine":"","id":"","generi":""},{"titolo":"The Resident","orainizio":"22:10","orafine":"","id":"","generi":""},{"titolo":"The Resident","orainizio":"23:00","orafine":"","id":"","generi":""},{"titolo":"Onorevoli Confessioni","orainizio":"23:45","orafine":"","id":"","generi":""},{"titolo":"O anche no","orainizio":"00:45","orafine":"","id":"","generi":""},{"titolo":"I lunatici","orainizio":"01:15","orafine":"","id":"","generi":""},{"titolo":"Un caso per due","orainizio":"02:40","orafine":"","id":"","generi":""},{"titolo":"Appuntamento al cinema","orainizio":"03:35","orafine":"","id":"","generi":""},{"titolo":"La foresta dei sogni","orainizio":"03:40","orafine":"","id":"","generi":""},{"titolo":"Piloti","orainizio":"05:25","orafine":"","id":"","generi":""},{"titolo":"La grande vallata","orainizio":"05:40","orafine":"","id":"","generi":""}]}');
+    }
+
+    function rai3() {
+        return JSON.parse('{"modal_actived":false,"canale":null,"data_1":1636671600,"data_2":null,"epg":[{"titolo":"RAInews24","orainizio":"06:00","orafine":"","id":"","generi":""},{"titolo":"TGR Buongiorno Italia","orainizio":"07:00","orafine":"","id":"","generi":""},{"titolo":"TGR Buongiorno Regione","orainizio":"07:40","orafine":"","id":"","generi":""},{"titolo":"Agor\u00e0","orainizio":"08:00","orafine":"","id":"","generi":""},{"titolo":"Agor\u00e0 Extra","orainizio":"09:35","orafine":"","id":"","generi":""},{"titolo":"Spaziolibero","orainizio":"10:30","orafine":"","id":"","generi":""},{"titolo":"Elisir","orainizio":"10:40","orafine":"","id":"","generi":""},{"titolo":"Meteo 3","orainizio":"11:55","orafine":"","id":"","generi":""},{"titolo":"TG3","orainizio":"12:00","orafine":"","id":"","generi":""},{"titolo":"TG3 Fuori TG","orainizio":"12:25","orafine":"","id":"","generi":""},{"titolo":"Quante storie","orainizio":"12:45","orafine":"","id":"","generi":""},{"titolo":"Passato e presente","orainizio":"13:15","orafine":"","id":"","generi":""},{"titolo":"TGR","orainizio":"14:00","orafine":"","id":"","generi":""},{"titolo":"TG Regione Meteo","orainizio":"14:18","orafine":"","id":"","generi":""},{"titolo":"TG3","orainizio":"14:20","orafine":"","id":"","generi":""},{"titolo":"Meteo 3","orainizio":"14:49","orafine":"","id":"","generi":""},{"titolo":"TGR Leonardo","orainizio":"14:50","orafine":"","id":"","generi":""},{"titolo":"TGR Piazza Affari","orainizio":"15:05","orafine":"","id":"","generi":""},{"titolo":"TG3 L.I.S.","orainizio":"15:15","orafine":"","id":"","generi":""},{"titolo":"Rai Parlamento Telegiornale","orainizio":"15:20","orafine":"","id":"","generi":""},{"titolo":"Gli Imperdibili","orainizio":"15:25","orafine":"","id":"","generi":""},{"titolo":"#Maestri","orainizio":"15:30","orafine":"","id":"","generi":""},{"titolo":"Aspettando Geo","orainizio":"16:05","orafine":"","id":"","generi":""},{"titolo":"Geo","orainizio":"17:00","orafine":"","id":"","generi":""},{"titolo":"Meteo 3","orainizio":"18:55","orafine":"","id":"","generi":""},{"titolo":"TG3","orainizio":"19:00","orafine":"","id":"","generi":""},{"titolo":"TGR","orainizio":"19:30","orafine":"","id":"","generi":""},{"titolo":"TG Regione Meteo","orainizio":"19:51","orafine":"","id":"","generi":""},{"titolo":"Blob","orainizio":"20:00","orafine":"","id":"","generi":""},{"titolo":"Che succ3de?","orainizio":"20:15","orafine":"","id":"","generi":""},{"titolo":"Un posto al sole","orainizio":"20:45","orafine":"","id":"","generi":""},{"titolo":"Tunnel della libert\u00e0","orainizio":"21:20","orafine":"","id":"","generi":""},{"titolo":"La versione di Fiorella","orainizio":"23:10","orafine":"","id":"","generi":""},{"titolo":"TG3 Linea notte","orainizio":"00:00","orafine":"","id":"","generi":""},{"titolo":"TGR","orainizio":"00:10","orafine":"","id":"","generi":""},{"titolo":"TG3 Linea notte","orainizio":"00:13","orafine":"","id":"","generi":""},{"titolo":"Meteo 3","orainizio":"01:00","orafine":"","id":"","generi":""},{"titolo":"TG Magazine","orainizio":"01:05","orafine":"","id":"","generi":""},{"titolo":"Fuori orario. Cose (mai) viste","orainizio":"01:10","orafine":"","id":"","generi":""},{"titolo":"Europa &#039;51 - Versione restaurata","orainizio":"01:25","orafine":"","id":"","generi":""},{"titolo":"Je Suis Simone - La Condition Ouvri\u00e8re","orainizio":"03:15","orafine":"","id":"","generi":""},{"titolo":"Fuori orario. Cose (mai) viste","orainizio":"04:38","orafine":"","id":"","generi":""}]}');
+    }
+</script>
 </body>
 </html>
