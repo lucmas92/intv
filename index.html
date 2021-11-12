@@ -22,13 +22,16 @@
                 </div>
                 <div class="flex mb-4">
                     <button @click="openTab = 1" :class="openTab === 1 ? 'text-indigo-500 border-indigo-500' : ''"
-                            class="flex-grow border-b-2 border-gray-300 py-2 text-md lg:text-lg px-1 cursor-pointer">Home
+                            class="flex-grow border-b-2 border-gray-300 py-2 text-md lg:text-lg px-1 cursor-pointer">
+                        Home
                     </button>
                     <button @click="openTab = 2" :class="openTab === 2 ? 'text-indigo-500 border-indigo-500' : ''"
-                            class="flex-grow border-b-2 border-gray-300 py-2 text-md lg:text-lg px-1 cursor-pointer">Lista Completa
+                            class="flex-grow border-b-2 border-gray-300 py-2 text-md lg:text-lg px-1 cursor-pointer">
+                        Lista Completa
                     </button>
                     <button @click="openTab = 3" :class="openTab === 3 ? 'text-indigo-500 border-indigo-500' : ''"
-                            class="flex-grow border-b-2 border-gray-300 py-2 text-md lg:text-lg px-1 cursor-pointer">Details
+                            class="flex-grow border-b-2 border-gray-300 py-2 text-md lg:text-lg px-1 cursor-pointer">
+                        Details
                     </button>
                 </div>
                 <div x-show="openTab === 2" class="overflow-scroll h-80 lg:h-40 pr-3">
@@ -141,13 +144,16 @@
                 </div>
                 <div class="flex mb-4">
                     <button @click="openTab = 1" :class="openTab === 1 ? 'text-indigo-500 border-indigo-500' : ''"
-                            class="flex-grow border-b-2 border-gray-300 py-2 text-md lg:text-lg px-1 cursor-pointer">Home
+                            class="flex-grow border-b-2 border-gray-300 py-2 text-md lg:text-lg px-1 cursor-pointer">
+                        Home
                     </button>
                     <button @click="openTab = 2" :class="openTab === 2 ? 'text-indigo-500 border-indigo-500' : ''"
-                            class="flex-grow border-b-2 border-gray-300 py-2 text-md lg:text-lg px-1 cursor-pointer">Lista Completa
+                            class="flex-grow border-b-2 border-gray-300 py-2 text-md lg:text-lg px-1 cursor-pointer">
+                        Lista Completa
                     </button>
                     <button @click="openTab = 3" :class="openTab === 3 ? 'text-indigo-500 border-indigo-500' : ''"
-                            class="flex-grow border-b-2 border-gray-300 py-2 text-md lg:text-lg px-1 cursor-pointer">Details
+                            class="flex-grow border-b-2 border-gray-300 py-2 text-md lg:text-lg px-1 cursor-pointer">
+                        Details
                     </button>
                 </div>
                 <div x-show="openTab === 2" class="overflow-scroll h-80 lg:h-40 pr-3">
@@ -260,13 +266,16 @@
                 </div>
                 <div class="flex mb-4">
                     <button @click="openTab = 1" :class="openTab === 1 ? 'text-indigo-500 border-indigo-500' : ''"
-                            class="flex-grow border-b-2 border-gray-300 py-2 text-md lg:text-lg px-1 cursor-pointer">Home
+                            class="flex-grow border-b-2 border-gray-300 py-2 text-md lg:text-lg px-1 cursor-pointer">
+                        Home
                     </button>
                     <button @click="openTab = 2" :class="openTab === 2 ? 'text-indigo-500 border-indigo-500' : ''"
-                            class="flex-grow border-b-2 border-gray-300 py-2 text-md lg:text-lg px-1 cursor-pointer">Lista Completa
+                            class="flex-grow border-b-2 border-gray-300 py-2 text-md lg:text-lg px-1 cursor-pointer">
+                        Lista Completa
                     </button>
                     <button @click="openTab = 3" :class="openTab === 3 ? 'text-indigo-500 border-indigo-500' : ''"
-                            class="flex-grow border-b-2 border-gray-300 py-2 text-md lg:text-lg px-1 cursor-pointer">Details
+                            class="flex-grow border-b-2 border-gray-300 py-2 text-md lg:text-lg px-1 cursor-pointer">
+                        Details
                     </button>
                 </div>
                 <div x-show="openTab === 2" class="overflow-scroll h-80 lg:h-40 pr-3">
@@ -368,7 +377,51 @@
         </div>
     </div>
 </section>
+<div class="bg-gray-700 flex flex-col justify-center p-12">
+    <!--    <div class="border-b flex container space-x-2 pb-8 mb-8">-->
+    <!--        <div class="flex-1 p-4 text-gray-200">-->
+    <!--            <h4 class="mb-3 font-bold">Titolo</h4>-->
+    <!--            <ul>-->
+    <!--                <li>1</li>-->
+    <!--                <li>2</li>-->
+    <!--            </ul>-->
 
+    <!--        </div>-->
+    <!--        <div class="flex-1 p-4 text-gray-200">-->
+    <!--            <h4 class="mb-3 font-bold">Titolo</h4>-->
+    <!--            <ul>-->
+    <!--                <li>1</li>-->
+    <!--                <li>2</li>-->
+    <!--            </ul>-->
 
+    <!--        </div>-->
+    <!--        <div class="flex-1 p-4 text-gray-200">-->
+    <!--            <h4 class="mb-3 font-bold">Titolo</h4>-->
+    <!--            <ul>-->
+    <!--                <li>1</li>-->
+    <!--                <li>2</li>-->
+    <!--            </ul>-->
+
+    <!--        </div>-->
+    <!--    </div>-->
+    <div class="flex container flex-col lg:flex-row lg:space-x-12">
+        <div class="flex w-full lg:w-3/5 py-4 lg:py-12 flex-col text-sm text-gray-400">
+            <p class="font-bold">
+                &copy; 2021 Company. All rights reserved. | All rights reserved
+            </p>
+            <p>
+                Our Website uses cookies from Google services. By continuing to use this site you are agreeing to our
+                use of cookies. Find out more by viewing our <a href="#" class="font-bold"> Privacy Policy</a>
+            </p>
+        </div>
+        <div class="flex-1 pb-4 lg:py-12">
+            <p class="text-sm text-gray-400"><br>
+                Ricordiamo che le emittenti possono variare le programmazioni senza preavviso.
+                I marchi, loghi, segni distintivi, colori, rappresentati, appartengono ai legittimi proprietari.
+            </p>
+        </div>
+    </div>
+
+</div>
 </body>
 </html>
