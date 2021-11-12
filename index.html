@@ -1,0 +1,374 @@
+<html lang="it">
+<head>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <title>Oggi in TV</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+</head>
+<body class="">
+
+
+<section class="text-gray-600 bg-gray-200 body-font overflow-hidden w-full">
+    <div class="container px-3 pt-8 mx-auto" x-data="{ openTab: 1 }">
+        <div class="lg:w-4/5 mx-auto flex flex-wrap">
+            <div class="lg:w-1/2 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
+                <div class="flex justify-between">
+                    <h1 class="text-gray-900 text-3xl title-font font-medium mb-4">Rai 1</h1>
+                    <img src="https://www.fondazionecralessandria.it/wp-content/uploads/2020/02/rai1.png"
+                         class="h-8" alt="">
+                </div>
+                <div class="flex mb-4">
+                    <button @click="openTab = 1" :class="openTab === 1 ? 'text-indigo-500 border-indigo-500' : ''"
+                            class="flex-grow border-b-2 border-gray-300 py-2 text-lg px-1 cursor-pointer">Home
+                    </button>
+                    <button @click="openTab = 2" :class="openTab === 2 ? 'text-indigo-500 border-indigo-500' : ''"
+                            class="flex-grow border-b-2 border-gray-300 py-2 text-lg px-1 cursor-pointer">Lista Completa
+                    </button>
+                    <button @click="openTab = 3" :class="openTab === 3 ? 'text-indigo-500 border-indigo-500' : ''"
+                            class="flex-grow border-b-2 border-gray-300 py-2 text-lg px-1 cursor-pointer">Details
+                    </button>
+                </div>
+                <div x-show="openTab === 2" class="overflow-scroll h-80 lg:h-40 pr-3">
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">18:45</span>
+                        <span class="ml-auto text-gray-900">L'Eredità</span>
+                    </div>
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">20:00</span>
+                        <span class="ml-auto text-gray-900">Tg1 NOTIZIARIO.</span>
+                    </div>
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">21:20</span>
+                        <span class="ml-auto text-gray-900">Soliti Ignoti - Il ritorno</span>
+                    </div>
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">23:00</span>
+                        <span class="ml-auto text-gray-900">Un professore St 1 Ep 1 - Socrate</span>
+                    </div>
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">23:40</span>
+                        <span class="ml-auto text-gray-900">Un professore St 1 Ep 2 - Roland Barthes</span>
+                    </div>
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">23:55</span>
+                        <span class="ml-auto text-gray-900">Porta a porta</span>
+                    </div>
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">18:45</span>
+                        <span class="ml-auto text-gray-900">L'Eredità</span>
+                    </div>
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">20:00</span>
+                        <span class="ml-auto text-gray-900">Tg1 NOTIZIARIO.</span>
+                    </div>
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">21:20</span>
+                        <span class="ml-auto text-gray-900">Soliti Ignoti - Il ritorno</span>
+                    </div>
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">23:00</span>
+                        <span class="ml-auto text-gray-900">Un professore St 1 Ep 1 - Socrate</span>
+                    </div>
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">23:40</span>
+                        <span class="ml-auto text-gray-900">Un professore St 1 Ep 2 - Roland Barthes</span>
+                    </div>
+                    <div class="flex border-t border-b mb-6 border-gray-400 py-2">
+                        <span class="text-gray-500">23:55</span>
+                        <span class="ml-auto text-gray-900">Porta a porta</span>
+                    </div>
+
+                </div>
+                <div x-show="openTab === 3" class="overflow-scroll h-0 pr-3"></div>
+                <div x-show="openTab === 1" class="overflow-scroll h-32 pr-3">
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">18:45</span>
+                        <span class="ml-auto text-gray-900">L'Eredità</span>
+                    </div>
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">20:00</span>
+                        <span class="ml-auto text-gray-900">Tg1 NOTIZIARIO.</span>
+                    </div>
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">21:20</span>
+                        <span class="ml-auto text-gray-900">Soliti Ignoti - Il ritorno</span>
+                    </div>
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">23:00</span>
+                        <span class="ml-auto text-gray-900">Un professore St 1 Ep 1 - Socrate</span>
+                    </div>
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">23:40</span>
+                        <span class="ml-auto text-gray-900">Un professore St 1 Ep 2 - Roland Barthes</span>
+                    </div>
+                    <div class="flex border-t border-b mb-6 border-gray-400 py-2">
+                        <span class="text-gray-500">23:55</span>
+                        <span class="ml-auto text-gray-900">Porta a porta</span>
+                    </div>
+                </div>
+            </div>
+            <div :class="openTab === 3 ? 'h-80' : ''"
+                 x-show="openTab === 1 || openTab === 3"
+                 class="flex lg:flex-col lg:w-1/2 w-full lg:h-auto h-48 space-x-2">
+                <div class="">
+                    <h2 class="text-sm title-font text-gray-500 tracking-widest">21:20</h2>
+                    <img alt="ecommerce" class="w-full h-32 md:h-64 object-cover object-center rounded"
+                         :class="openTab === 3 ? 'h-64' : ''"
+                         src="https://www.staseraintv.com/scheda/Show/q/quelli_che___/thumb/quelli_che_thumb.jpg">
+                </div>
+                <div class="flex-1 py-3">
+                    <h1 class="text-gray-900 text-3xl title-font font-medium mb-4">Quelli che... (Show)</h1>
+                    <p class=" leading-relaxed mb-4">
+                        Una prima serata che tra ironia e comicità ripercorre i fatti più importanti della
+                        settimana,offrendo uno sguardo sagace, tagliente, sui principali av...
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="text-gray-600 bg-gray-100 body-font overflow-hidden w-full">
+    <div class="container px-3 pt-8 mx-auto" x-data="{ openTab: 1 }">
+        <div class="lg:w-4/5 mx-auto flex flex-wrap">
+            <div class="lg:w-1/2 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
+                <div class="flex justify-between">
+                    <h1 class="text-gray-900 text-3xl title-font font-medium mb-4">Rai 2</h1>
+                    <img src="https://banner2.cleanpng.com/20180526/ov/kisspng-rai-2-television-rai-4-logo-5b0936f38f8303.1237761215273305475878.jpg"
+                         class="h-8" alt="">
+                </div>
+                <div class="flex mb-4">
+                    <button @click="openTab = 1" :class="openTab === 1 ? 'text-indigo-500 border-indigo-500' : ''"
+                            class="flex-grow border-b-2 border-gray-300 py-2 text-lg px-1 cursor-pointer">Home
+                    </button>
+                    <button @click="openTab = 2" :class="openTab === 2 ? 'text-indigo-500 border-indigo-500' : ''"
+                            class="flex-grow border-b-2 border-gray-300 py-2 text-lg px-1 cursor-pointer">Lista Completa
+                    </button>
+                    <button @click="openTab = 3" :class="openTab === 3 ? 'text-indigo-500 border-indigo-500' : ''"
+                            class="flex-grow border-b-2 border-gray-300 py-2 text-lg px-1 cursor-pointer">Details
+                    </button>
+                </div>
+                <div x-show="openTab === 2" class="overflow-scroll h-80 lg:h-40 pr-3">
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">18:45</span>
+                        <span class="ml-auto text-gray-900">L'Eredità</span>
+                    </div>
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">20:00</span>
+                        <span class="ml-auto text-gray-900">Tg1 NOTIZIARIO.</span>
+                    </div>
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">21:20</span>
+                        <span class="ml-auto text-gray-900">Soliti Ignoti - Il ritorno</span>
+                    </div>
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">23:00</span>
+                        <span class="ml-auto text-gray-900">Un professore St 1 Ep 1 - Socrate</span>
+                    </div>
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">23:40</span>
+                        <span class="ml-auto text-gray-900">Un professore St 1 Ep 2 - Roland Barthes</span>
+                    </div>
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">23:55</span>
+                        <span class="ml-auto text-gray-900">Porta a porta</span>
+                    </div>
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">18:45</span>
+                        <span class="ml-auto text-gray-900">L'Eredità</span>
+                    </div>
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">20:00</span>
+                        <span class="ml-auto text-gray-900">Tg1 NOTIZIARIO.</span>
+                    </div>
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">21:20</span>
+                        <span class="ml-auto text-gray-900">Soliti Ignoti - Il ritorno</span>
+                    </div>
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">23:00</span>
+                        <span class="ml-auto text-gray-900">Un professore St 1 Ep 1 - Socrate</span>
+                    </div>
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">23:40</span>
+                        <span class="ml-auto text-gray-900">Un professore St 1 Ep 2 - Roland Barthes</span>
+                    </div>
+                    <div class="flex border-t border-b mb-6 border-gray-400 py-2">
+                        <span class="text-gray-500">23:55</span>
+                        <span class="ml-auto text-gray-900">Porta a porta</span>
+                    </div>
+
+                </div>
+                <div x-show="openTab === 3" class="overflow-scroll h-0 pr-3"></div>
+                <div x-show="openTab === 1" class="overflow-scroll h-32 pr-3">
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">18:45</span>
+                        <span class="ml-auto text-gray-900">L'Eredità</span>
+                    </div>
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">20:00</span>
+                        <span class="ml-auto text-gray-900">Tg1 NOTIZIARIO.</span>
+                    </div>
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">21:20</span>
+                        <span class="ml-auto text-gray-900">Soliti Ignoti - Il ritorno</span>
+                    </div>
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">23:00</span>
+                        <span class="ml-auto text-gray-900">Un professore St 1 Ep 1 - Socrate</span>
+                    </div>
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">23:40</span>
+                        <span class="ml-auto text-gray-900">Un professore St 1 Ep 2 - Roland Barthes</span>
+                    </div>
+                    <div class="flex border-t border-b mb-6 border-gray-400 py-2">
+                        <span class="text-gray-500">23:55</span>
+                        <span class="ml-auto text-gray-900">Porta a porta</span>
+                    </div>
+                </div>
+            </div>
+            <div :class="openTab === 3 ? 'h-80' : ''"
+                 x-show="openTab === 1 || openTab === 3"
+                 class="flex lg:flex-col lg:w-1/2 w-full lg:h-auto h-48 space-x-2">
+                <div class="">
+                    <h2 class="text-sm title-font text-gray-500 tracking-widest">21:20</h2>
+                    <img alt="ecommerce" class="w-full h-32 md:h-64 object-cover object-center rounded"
+                         :class="openTab === 3 ? 'h-64' : ''"
+                         src="https://www.staseraintv.com/scheda/Show/q/quelli_che___/thumb/quelli_che_thumb.jpg">
+                </div>
+                <div class="flex-1 py-3">
+                    <h1 class="text-gray-900 text-3xl title-font font-medium mb-4">Quelli che... (Show)</h1>
+                    <p class=" leading-relaxed mb-4">
+                        Una prima serata che tra ironia e comicità ripercorre i fatti più importanti della
+                        settimana,offrendo uno sguardo sagace, tagliente, sui principali av...
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="text-gray-600 bg-gray-200 body-font overflow-hidden w-full">
+    <div class="container px-3 pt-8 mx-auto" x-data="{ openTab: 1 }">
+        <div class="lg:w-4/5 mx-auto flex flex-wrap">
+            <div class="lg:w-1/2 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
+                <div class="flex justify-between">
+                    <h1 class="text-gray-900 text-3xl title-font font-medium mb-4">Rai 3</h1>
+                    <img src="https://www.seekpng.com/png/detail/363-3639192_rai-3-hd-rai-3-logo-png.png"
+                         class="h-8" alt="">
+                </div>
+                <div class="flex mb-4">
+                    <button @click="openTab = 1" :class="openTab === 1 ? 'text-indigo-500 border-indigo-500' : ''"
+                            class="flex-grow border-b-2 border-gray-300 py-2 text-lg px-1 cursor-pointer">Home
+                    </button>
+                    <button @click="openTab = 2" :class="openTab === 2 ? 'text-indigo-500 border-indigo-500' : ''"
+                            class="flex-grow border-b-2 border-gray-300 py-2 text-lg px-1 cursor-pointer">Lista Completa
+                    </button>
+                    <button @click="openTab = 3" :class="openTab === 3 ? 'text-indigo-500 border-indigo-500' : ''"
+                            class="flex-grow border-b-2 border-gray-300 py-2 text-lg px-1 cursor-pointer">Details
+                    </button>
+                </div>
+                <div x-show="openTab === 2" class="overflow-scroll h-80 lg:h-40 pr-3">
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">18:45</span>
+                        <span class="ml-auto text-gray-900">L'Eredità</span>
+                    </div>
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">20:00</span>
+                        <span class="ml-auto text-gray-900">Tg1 NOTIZIARIO.</span>
+                    </div>
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">21:20</span>
+                        <span class="ml-auto text-gray-900">Soliti Ignoti - Il ritorno</span>
+                    </div>
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">23:00</span>
+                        <span class="ml-auto text-gray-900">Un professore St 1 Ep 1 - Socrate</span>
+                    </div>
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">23:40</span>
+                        <span class="ml-auto text-gray-900">Un professore St 1 Ep 2 - Roland Barthes</span>
+                    </div>
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">23:55</span>
+                        <span class="ml-auto text-gray-900">Porta a porta</span>
+                    </div>
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">18:45</span>
+                        <span class="ml-auto text-gray-900">L'Eredità</span>
+                    </div>
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">20:00</span>
+                        <span class="ml-auto text-gray-900">Tg1 NOTIZIARIO.</span>
+                    </div>
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">21:20</span>
+                        <span class="ml-auto text-gray-900">Soliti Ignoti - Il ritorno</span>
+                    </div>
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">23:00</span>
+                        <span class="ml-auto text-gray-900">Un professore St 1 Ep 1 - Socrate</span>
+                    </div>
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">23:40</span>
+                        <span class="ml-auto text-gray-900">Un professore St 1 Ep 2 - Roland Barthes</span>
+                    </div>
+                    <div class="flex border-t border-b mb-6 border-gray-400 py-2">
+                        <span class="text-gray-500">23:55</span>
+                        <span class="ml-auto text-gray-900">Porta a porta</span>
+                    </div>
+
+                </div>
+                <div x-show="openTab === 3" class="overflow-scroll h-0 pr-3"></div>
+                <div x-show="openTab === 1" class="overflow-scroll h-32 pr-3">
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">18:45</span>
+                        <span class="ml-auto text-gray-900">L'Eredità</span>
+                    </div>
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">20:00</span>
+                        <span class="ml-auto text-gray-900">Tg1 NOTIZIARIO.</span>
+                    </div>
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">21:20</span>
+                        <span class="ml-auto text-gray-900">Soliti Ignoti - Il ritorno</span>
+                    </div>
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">23:00</span>
+                        <span class="ml-auto text-gray-900">Un professore St 1 Ep 1 - Socrate</span>
+                    </div>
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">23:40</span>
+                        <span class="ml-auto text-gray-900">Un professore St 1 Ep 2 - Roland Barthes</span>
+                    </div>
+                    <div class="flex border-t border-b mb-6 border-gray-400 py-2">
+                        <span class="text-gray-500">23:55</span>
+                        <span class="ml-auto text-gray-900">Porta a porta</span>
+                    </div>
+                </div>
+            </div>
+            <div :class="openTab === 3 ? 'h-80' : ''"
+                 x-show="openTab === 1 || openTab === 3"
+                 class="flex lg:flex-col lg:w-1/2 w-full lg:h-auto h-48 space-x-2">
+                <div class="">
+                    <h2 class="text-sm title-font text-gray-500 tracking-widest">21:20</h2>
+                    <img alt="ecommerce" class="w-full h-32 md:h-64 object-cover object-center rounded"
+                         :class="openTab === 3 ? 'h-64' : ''"
+                         src="https://www.staseraintv.com/scheda/Show/q/quelli_che___/thumb/quelli_che_thumb.jpg">
+                </div>
+                <div class="flex-1 py-3">
+                    <h1 class="text-gray-900 text-3xl title-font font-medium mb-4">Quelli che... (Show)</h1>
+                    <p class=" leading-relaxed mb-4">
+                        Una prima serata che tra ironia e comicità ripercorre i fatti più importanti della
+                        settimana,offrendo uno sguardo sagace, tagliente, sui principali av...
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+</body>
+</html>
