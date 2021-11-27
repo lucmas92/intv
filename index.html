@@ -14,68 +14,24 @@
         }
     </style>
 </head>
-<body class="">
+<body class="text-sm">
 <nav class="sticky w-full bg-white shadow bg-gray-700 z-40">
     <div class="container flex items-center justify-between p-3 mx-auto text-gray-200 capitalize">
-        <h3 class="text-xl">InTV</h3>
-        <section aria-label="Page navigation" x-data="{page:1}">
-            <ul class="inline-flex space-x-2">
-                <li>
-                    <button @click="page--"
-                            class="flex items-center justify-center w-10 h-10 text-indigo-100 transition-colors duration-150 rounded-full focus:shadow-outline hover:bg-indigo-100 hover:text-indigo-600">
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                            <path d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-                                  clip-rule="evenodd" fill-rule="evenodd"></path>
-                        </svg>
-                    </button>
-                </li>
-                <li>
-                    <button @click="page=1"
-                            :class="page === 1 ? 'bg-indigo-100 border border-r-0 border-indigo-600 text-indigo-600' : ''"
-                            class="w-10 h-10 text-indigo-100 transition-colors duration-150 rounded-full focus:shadow-outline hover:bg-indigo-100 hover:text-indigo-600">
-                        1
-                    </button>
-                </li>
-                <li>
-                    <button @click="page=2"
-                            :class="page === 2 ? 'bg-indigo-100 border border-r-0 border-indigo-600 text-indigo-600' : ''"
-                            class="w-10 h-10 text-indigo-100 transition-colors duration-150 rounded-full focus:shadow-outline hover:bg-indigo-100 hover:text-indigo-600">
-                        2
-                    </button>
-                </li>
-                <li>
-                    <button @click="page=3"
-                            :class="page === 3 ? 'bg-indigo-100 border border-r-0 border-indigo-600 text-indigo-600' : ''"
-                            class="w-10 h-10 text-indigo-100 transition-colors duration-150 rounded-full focus:shadow-outline hover:bg-indigo-100 hover:text-indigo-600">
-                        3
-                    </button>
-                </li>
-                <li>
-                    <button @click="page++"
-                            class="flex items-center justify-center w-10 h-10 text-indigo-100 transition-colors duration-150 rounded-full focus:shadow-outline hover:bg-indigo-100 hover:text-indigo-600">
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                            <path d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                  clip-rule="evenodd" fill-rule="evenodd"></path>
-                        </svg>
-                    </button>
-                </li>
-            </ul>
-        </section>
+        <h3 class="text-xl">
+            <a href="index.html">
+                InTV
+            </a>
+        </h3>
     </div>
 </nav>
 
 <!--RAI 1-->
 <section class="text-gray-600 bg-gray-200 body-font overflow-hidden w-full">
-    <div class="container px-3 pt-8 mx-auto" x-data="{ openTab: 1, programmi:[] }" x-init="fetch('./api.php?canale=rai1')
-            .then(response=> {
-                if (!response.ok) alert(`Something went wrong: ${response.status} - ${response.statusText}`)
-                return response.json()
-            })
-            .then(data => programmi = data)">
-        <div class="lg:w-4/5 mx-auto flex flex-wrap">
-            <div class="lg:w-1/2 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
+    <div class="container px-3 pt-8 mx-auto" x-data="{openTab: 1}">
+        <div class="lg:w-4/5 mx-auto flex flex-wrap mb-6 lg:mb-0">
+            <div class="lg:w-1/2 w-full lg:pr-10 lg:py-6">
                 <div class="flex justify-between">
-                    <h1 class="text-gray-900 text-3xl title-font font-medium mb-4">Rai 1</h1>
+                    <h1 class="text-gray-900 text-2xl lg:text-3xl title-font font-medium mb-4">Rai 1</h1>
                     <img src="https://www.fondazionecralessandria.it/wp-content/uploads/2020/02/rai1.png"
                          class="h-8" alt="">
                 </div>
@@ -94,64 +50,285 @@
                     </button>
                 </div>
                 <!-- CONTENUTO TAB-->
-                <div x-show="openTab === 1" class="overflow-scroll h-96 lg:h-80 pr-3" x-show="programmi['epg']">
+                <div x-show="openTab === 1" class="overflow-scroll h-96 lg:h-80 pr-3">
                     <div class="h-48 bg-gray-200 overflow-hidden">
-                        <template x-for="programma in programmi['epg']">
-                            <div class="flex border-t border-gray-400 py-2">
-                                <span class="text-gray-500" x-text="programma['orainizio']"></span>
-                                <span class="ml-auto text-gray-900" x-text="programma['titolo']"></span>
-                            </div>
-                        </template>
+                        <div class="flex border-t border-gray-400 py-2">
+                            <span class="text-gray-500">18:45</span>
+                            <span class="ml-auto text-gray-900">L'Eredità</span>
+                        </div>
+
+                        <div class="flex border-t border-gray-400 py-2">
+                            <span class="text-gray-500">20:00</span>
+                            <span class="ml-auto text-gray-900">Tg1 NOTIZIARIO.</span>
+                        </div>
+
+                        <div class="flex border-t border-gray-400 py-2">
+                            <span class="text-gray-500">20:30</span>
+                            <span class="ml-auto text-gray-900">Soliti Ignoti - Il ritorno</span>
+                        </div>
+                        <div class="flex border-t border-gray-400 py-2">
+                            <span class="text-gray-500">21:25</span>
+                            <span class="ml-auto text-gray-900">Bohemian Rhapsody</span>
+                        </div>
+                        <div class="flex border-t border-gray-400 py-2">
+                            <span class="text-gray-500">23:50</span>
+                            <span class="ml-auto text-gray-900">Porta a portay</span>
+                        </div>
                     </div>
                 </div>
                 <div x-show="openTab === 2" class="overflow-scroll h-96 lg:h-80 pr-3">
-                    <template x-for="programma in programmi['epg']">
-                        <div class="flex border-t border-gray-400 py-2">
-                            <span class="text-gray-500" x-text="programma['orainizio']">18:45</span>
-                            <span class="ml-auto text-gray-900" x-text="programma['titolo']"></span>
-                        </div>
-                    </template>
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">06:00</span>
+                        <span class="ml-auto text-gray-900">RaiNews NOTIZIARIO.</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">07:00</span>
+                        <span class="ml-auto text-gray-900">Tg1 NOTIZIARIO.</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">07:10</span>
+                        <span class="ml-auto text-gray-900">Unomattina</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">07:30</span>
+                        <span class="ml-auto text-gray-900">TG1 LIS NOTIZIARIO.</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">07:33</span>
+                        <span class="ml-auto text-gray-900">Che tempo fa</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">07:35</span>
+                        <span class="ml-auto text-gray-900">Unomattina</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">07:50</span>
+                        <span class="ml-auto text-gray-900">Che tempo fa</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">07:52</span>
+                        <span class="ml-auto text-gray-900">Unomattina</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">08:00</span>
+                        <span class="ml-auto text-gray-900">Tg1 NOTIZIARIO.</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">08:30</span>
+                        <span class="ml-auto text-gray-900">Che tempo fa</span>
+                    </div>
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">08:32</span>
+                        <span class="ml-auto text-gray-900">Unomattina</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">09:00</span>
+                        <span class="ml-auto text-gray-900">Tg1 NOTIZIARIO.</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">09:07</span>
+                        <span class="ml-auto text-gray-900">Che tempo fa</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">09:09</span>
+                        <span class="ml-auto text-gray-900">Unomattina</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">09:30</span>
+                        <span class="ml-auto text-gray-900">Tg1 Flash NOTIZIARIO.</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">09:35</span>
+                        <span class="ml-auto text-gray-900">Tg Parlamento NOTIZIARIO.</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">09:40</span>
+                        <span class="ml-auto text-gray-900">Meteo verde</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">09:41</span>
+                        <span class="ml-auto text-gray-900">Unomattina</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">09:50</span>
+                        <span class="ml-auto text-gray-900">Tg1 NOTIZIARIO.</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">09:55</span>
+                        <span class="ml-auto text-gray-900">Storie italiane</span>
+                    </div>
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">11:55</span>
+                        <span class="ml-auto text-gray-900">E' sempre mezzogiorno</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">13:30</span>
+                        <span class="ml-auto text-gray-900">Tg1 NOTIZIARIO.</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">14:00</span>
+                        <span class="ml-auto text-gray-900">Oggi è un altro giorno</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">15:55</span>
+                        <span class="ml-auto text-gray-900">Il paradiso delle signore St 6 Ep 53 - Episodio 53</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">16:45</span>
+                        <span class="ml-auto text-gray-900">Tg1 NOTIZIARIO.</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">16:55</span>
+                        <span class="ml-auto text-gray-900">TG1 Economia</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">17:00</span>
+                        <span class="ml-auto text-gray-900">Che tempo fa</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">17:05</span>
+                        <span class="ml-auto text-gray-900">La vita in diretta</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">18:45</span>
+                        <span class="ml-auto text-gray-900">L'Eredità</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">20:00</span>
+                        <span class="ml-auto text-gray-900">Tg1 NOTIZIARIO.</span>
+                    </div>
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">20:30</span>
+                        <span class="ml-auto text-gray-900">Soliti Ignoti - Il ritorno</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">21:25</span>
+                        <span class="ml-auto text-gray-900">Bohemian Rhapsody</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">23:50</span>
+                        <span class="ml-auto text-gray-900">Porta a porta</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">23:55</span>
+                        <span class="ml-auto text-gray-900">TG1 Sera NOTIZIARIO.</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">00:01</span>
+                        <span class="ml-auto text-gray-900">Porta a porta</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">01:30</span>
+                        <span class="ml-auto text-gray-900">RaiNews NOTIZIARIO.</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">01:58</span>
+                        <span class="ml-auto text-gray-900">Che tempo fa</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">02:05</span>
+                        <span class="ml-auto text-gray-900">Movie Mag</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">02:30</span>
+                        <span class="ml-auto text-gray-900">Il commissario Manara</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">03:25</span>
+                        <span class="ml-auto text-gray-900">RaiNews NOTIZIARIO.</span>
+                    </div>
                 </div>
-                <div x-show="openTab === 3" class="overflow-scroll h-0 lg:h-80 pr-3">
-                    Una prima serata che tra ironia e comicità ripercorre i fatti più importanti della
-                    settimana,offrendo uno sguardo sagace, tagliente, sui principali av...
+                <div x-show="openTab === 3" class="overflow-scroll h-0 lg:h-80 pr-3 text-sm">
+                    Quattro Oscar e due Golden Globe al film che celebra la gloria dei Queen e del leggendario Freddie
+                    Mercury, interpretato da uno straordinario Rami Malek. Dalla genesi della band alla consacrazione
+                    sul palco del Live Aid, la storia di uno dei gruppi rock piu' amati di tutti i tempi.
+                    <ul>
+                        <li>Titolo Originale: Bohemian Rhapsody</li>
+                        <li>Genere: Biografia</li>
+                        <li>Durata: 2h 10m</li>
+                        <li>Anno: 2018</li>
+                        <li>Paese: USA, UK</li>
+                        <li>Regia: Bryan Singer</li>
+                        <li>Cast: Rami Malek, Lucy Boynton, Gwilym Lee, Ben Hardy, Joseph Mazzello</li>
+                    </ul>
                 </div>
             </div>
-            <div class="flex lg:flex-col lg:w-1/2 w-full space-x-2"
-                 x-show="openTab === 3"
-                 :class="openTab === 3 ? 'h-96 bg-gray-200' : ''">
+            <div class="lg:flex-col lg:w-1/2 w-full space-x-2"
+                 x-show="openTab === 3 || openTab === 1"
+                 :class="openTab === 3 ? 'h-96 bg-gray-200' : 'hidden lg:block'">
                 <div>
                     <h2 class="text-sm title-font text-gray-500 tracking-widest">21:20</h2>
                 </div>
                 <div class="flex-1 py-3">
-                    <h1 class="text-gray-900 text-2xl title-font font-medium mb-4">Quelli che... (Show)</h1>
-                    <img alt="ecommerce" class="w-full h-32 md:h-64 object-cover object-center rounded"
-                         src="https://www.staseraintv.com/scheda/Show/q/quelli_che___/thumb/quelli_che_thumb.jpg">
+                    <h1 class="text-gray-900 text-2xl title-font font-medium mb-4">Bohemian Rhapsody (Film)</h1>
+                    <img alt="ecommerce"
+                         class="w-auto lg:w-full h-32 md:h-64 object-cover object-center rounded float-left mr-2 mb-2"
+                         src="images/rai_1_thumb.jpeg">
+                    <div class="lg:hidden">
+                        Quattro Oscar e due Golden Globe al film che celebra la gloria dei Queen e del leggendario
+                        Freddie Mercury, interpretato da uno straordinario Rami Malek. Dalla genesi della band alla
+                        consacrazione sul palco del Live Aid, la storia di uno dei gruppi rock piu' amati di tutti i
+                        tempi.
+                        <ul>
+                            <li>Titolo Originale: Bohemian Rhapsody</li>
+                            <li>Genere: Biografia</li>
+                            <li>Durata: 2h 10m</li>
+                            <li>Anno: 2018</li>
+                            <li>Paese: USA, UK</li>
+                            <li>Regia: Bryan Singer</li>
+                            <li>Cast: Rami Malek, Lucy Boynton, Gwilym Lee, Ben Hardy, Joseph Mazzello</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<div class="promo flex justify-center bg-gray-200 ">
-    <a href="https://d.adagiof3.repubblica.it/ad/clk.jsp?x=459559.643354.1063.873401.-1.ksg_nonabbonato^https_www_repubblica_it_^taxonomy_repubblica-homepage^pwpagetracked_false^pwuserauthorized_false^pwcounterlimit_0^pwuserlogged_false^pwuserconsumed_0^pwcounterexceed_false^pwauthinfo_freepageviews^pwcounterexceedeq_false^idwt_^abtesting_97^device_desktop^panel_2.2.22.1.11180.1.-1.-1.-1..-1.0.%7CK%3Aksg_nonabbonato%7C..&amp;link=https%3A%2F%2Fsmile.gedidigital.it%2F"
-       target="_blank"><img style="width:970px;height:250px;position:relative;" width="970" height="250"
-                            src="https://ac.neodatagroup.com/img_uploads/354/22_643354_7_Loyalty_masthead_NonABB_Rep.gif"
-                            alt="autopromo-hp"></a>
-</div>
 
 <!--RAI 2-->
 <section class="text-gray-600 bg-gray-100 body-font overflow-hidden w-full">
-    <div class="container px-3 pt-8 mx-auto" x-data="{ openTab: 1, programmi:[] }" x-init="fetch('./api.php?canale=rai2')
-            .then(response=> {
-                if (!response.ok) alert(`Something went wrong: ${response.status} - ${response.statusText}`)
-                return response.json()
-            })
-            .then(data => programmi = data)">
-        <div class="lg:w-4/5 mx-auto flex flex-wrap">
-            <div class="lg:w-1/2 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
+    <div class="container px-3 pt-8 mx-auto" x-data="{openTab: 1}">
+        <div class="lg:w-4/5 mx-auto flex flex-wrap mb-6 lg:mb-0">
+            <div class="lg:w-1/2 w-full lg:pr-10 lg:py-6">
                 <div class="flex justify-between">
-                    <h1 class="text-gray-900 text-3xl title-font font-medium mb-4">Rai 2</h1>
-                    <img src="https://www.fondazionecralessandria.it/wp-content/uploads/2020/02/rai1.png"
+                    <h1 class="text-gray-900 text-2xl lg:text-3xl title-font font-medium mb-4">Rai 2</h1>
+                    <img src="https://www.tvzoom.it/wp-content/uploads/2014/06/rai2logo-e1435306459542.jpg"
                          class="h-8" alt="">
                 </div>
                 <div class="flex mb-4">
@@ -169,64 +346,238 @@
                     </button>
                 </div>
                 <!-- CONTENUTO TAB-->
-                <div x-show="openTab === 1" class="overflow-scroll h-96 lg:h-80 pr-3" x-show="programmi['epg']">
-                    <div class="h-48 bg-gray-200 overflow-hidden">
-                        <template x-for="programma in programmi['epg']">
-                            <div class="flex border-t border-gray-400 py-2">
-                                <span class="text-gray-500" x-text="programma['orainizio']"></span>
-                                <span class="ml-auto text-gray-900" x-text="programma['titolo']"></span>
-                            </div>
-                        </template>
+                <div x-show="openTab === 1" class="overflow-scroll h-96 lg:h-80 pr-3">
+                    <div class="h-48 bg-gray-100 overflow-hidden">
+                        <div class="flex border-t border-gray-400 py-2">
+                            <span class="text-gray-500">18:50</span>
+                            <span class="ml-auto text-gray-900">Blue Bloods Un omicidio scomodo</span>
+                        </div>
+
+                        <div class="flex border-t border-gray-400 py-2">
+                            <span class="text-gray-500">19:40</span>
+                            <span class="ml-auto text-gray-900">N.C.I.S. St 15 Ep 24 - Appuntamento col destino</span>
+                        </div>
+
+                        <div class="flex border-t border-gray-400 py-2">
+                            <span class="text-gray-500">20:30</span>
+                            <span class="ml-auto text-gray-900">Tg2 TG2 - 20.30</span>
+                        </div>
+
+                        <div class="flex border-t border-gray-400 py-2">
+                            <span class="text-gray-500">21:00</span>
+                            <span class="ml-auto text-gray-900">TG2 Post</span>
+                        </div>
+
+                        <div class="flex border-t border-gray-400 py-2">
+                            <span class="text-gray-500">21:20</span>
+                            <span class="ml-auto text-gray-900">Mare fuori St 2 Ep 3 - Io non sono come voi</span>
+                        </div>
+
                     </div>
                 </div>
                 <div x-show="openTab === 2" class="overflow-scroll h-96 lg:h-80 pr-3">
-                    <template x-for="programma in programmi['epg']">
-                        <div class="flex border-t border-gray-400 py-2">
-                            <span class="text-gray-500" x-text="programma['orainizio']">18:45</span>
-                            <span class="ml-auto text-gray-900" x-text="programma['titolo']"></span>
-                        </div>
-                    </template>
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">06:20</span>
+                        <span class="ml-auto text-gray-900">Desperate Housewives St 6 Ep 22</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">07:00</span>
+                        <span class="ml-auto text-gray-900">Charlie's Angels Pensiero d'Angelo</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">07:45</span>
+                        <span class="ml-auto text-gray-900">Heartland St 13 Ep 9 - Lotta o fuggi</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">08:30</span>
+                        <span class="ml-auto text-gray-900">Tg2 TG2</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">08:45</span>
+                        <span class="ml-auto text-gray-900">Radio2 Social Club</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">09:58</span>
+                        <span class="ml-auto text-gray-900">Meteo 2</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">10:00</span>
+                        <span class="ml-auto text-gray-900">Tg2 Italia TG2 Italia</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">10:55</span>
+                        <span class="ml-auto text-gray-900">Tg2 Flash TG2 Flash</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">11:00</span>
+                        <span class="ml-auto text-gray-900">Tg Sport TG Sport Giorno - A cura di Rai Sport</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">11:10</span>
+                        <span class="ml-auto text-gray-900">I Fatti Vostri</span>
+                    </div>
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">13:00</span>
+                        <span class="ml-auto text-gray-900">Tg2 TG2 - GIORNO</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">13:30</span>
+                        <span class="ml-auto text-gray-900">Tg2 Costume & Società Direttore Gennaro Sangiuliano</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">13:50</span>
+                        <span class="ml-auto text-gray-900">Tg2 Medicina 33</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">14:00</span>
+                        <span class="ml-auto text-gray-900">Ore 14</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">15:00</span>
+                        <span class="ml-auto text-gray-900">Question Time Dichiarazioni di voto in Parlamento</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">16:00</span>
+                        <span class="ml-auto text-gray-900">Detto Fatto</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">17:15</span>
+                        <span class="ml-auto text-gray-900">Una parola di troppo</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">18:00</span>
+                        <span class="ml-auto text-gray-900">Tg Parlamento A cura di Rai Parlamento</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">18:10</span>
+                        <span class="ml-auto text-gray-900">TG2 LIS TG2 L.I.S.</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">18:15</span>
+                        <span class="ml-auto text-gray-900">Tg2 TG2</span>
+                    </div>
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">18:30</span>
+                        <span class="ml-auto text-gray-900">Tg Sport TG Sport Sera - A cura di Rai Sport</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">18:48</span>
+                        <span class="ml-auto text-gray-900">Meteo 2</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">18:50</span>
+                        <span class="ml-auto text-gray-900">Blue Bloods Un omicidio scomodo</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">19:40</span>
+                        <span class="ml-auto text-gray-900">N.C.I.S. St 15 Ep 24 - Appuntamento col destino</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">20:30</span>
+                        <span class="ml-auto text-gray-900">Tg2 TG2 - 20.30</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">21:00</span>
+                        <span class="ml-auto text-gray-900">TG2 Post</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">21:20</span>
+                        <span class="ml-auto text-gray-900">Mare fuori St 2 Ep 3 - Io non sono come voi</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">22:20</span>
+                        <span class="ml-auto text-gray-900">Mare fuori St 2 Ep 4 - Amare chi fa male</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">23:20</span>
+                        <span class="ml-auto text-gray-900">Re Start</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">00:45</span>
+                        <span class="ml-auto text-gray-900">I Lunatici</span>
+                    </div>
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">02:20</span>
+                        <span class="ml-auto text-gray-900">Pitza e datteri</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">03:50</span>
+                        <span class="ml-auto text-gray-900">Piloti</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">04:05</span>
+                        <span class="ml-auto text-gray-900">The Avatars St 1 Ep 5 - Cattivissimo Mick</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">04:30</span>
+                        <span class="ml-auto text-gray-900">Detto Fatto</span>
+                    </div>
                 </div>
                 <div x-show="openTab === 3" class="overflow-scroll h-0 lg:h-80 pr-3">
-                    Una prima serata che tra ironia e comicità ripercorre i fatti più importanti della
-                    settimana,offrendo uno sguardo sagace, tagliente, sui principali av...
+                    L'Istituto di Pena Minorile di Napoli è a picco sul mare e ospita settanta detenuti: 50 maschi e 20
+                    femmine. Quando entrano i ragazzi hanno sempre meno di 18 anni e lo fanno perché hanno "sbagliato".
+                    Questa serie racconta le loro storie.
                 </div>
             </div>
-            <div class="flex lg:flex-col lg:w-1/2 w-full space-x-2"
-                 x-show="openTab === 3"
-                 :class="openTab === 3 ? 'h-96 bg-gray-200' : ''">
+            <div class="lg:flex-col lg:w-1/2 w-full space-x-2"
+                 :class="openTab === 3 ? 'h-96 bg-gray-100' : 'hidden lg:block'">
                 <div>
                     <h2 class="text-sm title-font text-gray-500 tracking-widest">21:20</h2>
                 </div>
                 <div class="flex-1 py-3">
-                    <h1 class="text-gray-900 text-2xl title-font font-medium mb-4">Quelli che... (Show)</h1>
-                    <img alt="ecommerce" class="w-full h-32 md:h-64 object-cover object-center rounded"
-                         src="https://www.staseraintv.com/scheda/Show/q/quelli_che___/thumb/quelli_che_thumb.jpg">
+                    <h1 class="text-gray-900 text-2xl title-font font-medium mb-4">Mare fuori 2</h1>
+                    <img alt="ecommerce"
+                         class="w-auto lg:w-full h-32 md:h-64 object-cover object-center rounded float-left mr-2 mb-2"
+                         src="images/rai_2_thumb.jpeg">
+                    <div class="lg:hidden">
+                        L'Istituto di Pena Minorile di Napoli è a picco sul mare e ospita settanta detenuti: 50 maschi e
+                        20 femmine. Quando entrano i ragazzi hanno sempre meno di 18 anni e lo fanno perché hanno
+                        "sbagliato". Questa serie racconta le loro storie.
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<div class="promo flex justify-center bg-gray-200 ">
-    <a href="https://d.adagiof3.repubblica.it/ad/clk.jsp?x=459559.643354.1063.873401.-1.ksg_nonabbonato^https_www_repubblica_it_^taxonomy_repubblica-homepage^pwpagetracked_false^pwuserauthorized_false^pwcounterlimit_0^pwuserlogged_false^pwuserconsumed_0^pwcounterexceed_false^pwauthinfo_freepageviews^pwcounterexceedeq_false^idwt_^abtesting_97^device_desktop^panel_2.2.22.1.11180.1.-1.-1.-1..-1.0.%7CK%3Aksg_nonabbonato%7C..&amp;link=https%3A%2F%2Fsmile.gedidigital.it%2F"
-       target="_blank"><img style="width:970px;height:250px;position:relative;" width="970" height="250"
-                            src="https://ac.neodatagroup.com/img_uploads/354/22_643354_7_Loyalty_masthead_NonABB_Rep.gif"
-                            alt="autopromo-hp"></a>
-</div>
 <!--RAI 3-->
-<section class="text-gray-600 bg-gray-100 body-font overflow-hidden w-full">
-    <div class="container px-3 pt-8 mx-auto" x-data="{ openTab: 1, programmi:[] }" x-init="fetch('./api.php?canale=rai3')
-            .then(response=> {
-                if (!response.ok) alert(`Something went wrong: ${response.status} - ${response.statusText}`)
-                return response.json()
-            })
-            .then(data => programmi = data)">
-        <div class="lg:w-4/5 mx-auto flex flex-wrap">
-            <div class="lg:w-1/2 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
+<section class="text-gray-600 bg-gray-200 body-font overflow-hidden w-full">
+    <div class="container px-3 pt-8 mx-auto" x-data="{openTab: 1}">
+        <div class="lg:w-4/5 mx-auto flex flex-wrap mb-6 lg:mb-0">
+            <div class="lg:w-1/2 w-full lg:pr-10 lg:py-6">
                 <div class="flex justify-between">
-                    <h1 class="text-gray-900 text-3xl title-font font-medium mb-4">Rai 3</h1>
-                    <img src="https://www.fondazionecralessandria.it/wp-content/uploads/2020/02/rai1.png"
+                    <h1 class="text-gray-900 text-2xl lg:text-3xl title-font font-medium mb-4">Rai 3</h1>
+                    <img src="https://www.cuprense1933.it/foto/grandi/rai3.png"
                          class="h-8" alt="">
                 </div>
                 <div class="flex mb-4">
@@ -244,64 +595,253 @@
                     </button>
                 </div>
                 <!-- CONTENUTO TAB-->
-                <div x-show="openTab === 1" class="overflow-scroll h-96 lg:h-80 pr-3" x-show="programmi['epg']">
+                <div x-show="openTab === 1" class="overflow-scroll h-96 lg:h-80 pr-3">
                     <div class="h-48 bg-gray-200 overflow-hidden">
-                        <template x-for="programma in programmi['epg']">
-                            <div class="flex border-t border-gray-400 py-2">
-                                <span class="text-gray-500" x-text="programma['orainizio']"></span>
-                                <span class="ml-auto text-gray-900" x-text="programma['titolo']"></span>
-                            </div>
-                        </template>
+                        <div class="flex border-t border-gray-400 py-2">
+                            <span class="text-gray-500">19:51</span>
+                            <span class="ml-auto text-gray-900">Tg Regione NOTIZIARIO.</span>
+                        </div>
+                        <div class="flex border-t border-gray-400 py-2">
+                            <span class="text-gray-500">20:00</span>
+                            <span class="ml-auto text-gray-900">Blob</span>
+                        </div>
+
+                        <div class="flex border-t border-gray-400 py-2">
+                            <span class="text-gray-500">20:20</span>
+                            <span class="ml-auto text-gray-900">Che succ3de?</span>
+                        </div>
+
+                        <div class="flex border-t border-gray-400 py-2">
+                            <span class="text-gray-500">20:45</span>
+                            <span class="ml-auto text-gray-900">Un posto al sole</span>
+                        </div>
+
+                        <div class="flex border-t border-gray-400 py-2">
+                            <span class="text-gray-500">21:20</span>
+                            <span class="ml-auto text-gray-900">Chi l'ha visto?</span>
+                        </div>
                     </div>
                 </div>
                 <div x-show="openTab === 2" class="overflow-scroll h-96 lg:h-80 pr-3">
-                    <template x-for="programma in programmi['epg']">
-                        <div class="flex border-t border-gray-400 py-2">
-                            <span class="text-gray-500" x-text="programma['orainizio']">18:45</span>
-                            <span class="ml-auto text-gray-900" x-text="programma['titolo']"></span>
-                        </div>
-                    </template>
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">06:00</span>
+                        <span class="ml-auto text-gray-900">RaiNews NOTIZIARIO.</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">07:00</span>
+                        <span class="ml-auto text-gray-900">TGR Buongiorno Italia</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">07:40</span>
+                        <span class="ml-auto text-gray-900">TGR Buongiorno Regione</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">08:00</span>
+                        <span class="ml-auto text-gray-900">Agorà</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">09:40</span>
+                        <span class="ml-auto text-gray-900">Agorà Extra</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">10:30</span>
+                        <span class="ml-auto text-gray-900">Parlamento Spaziolibero</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">10:40</span>
+                        <span class="ml-auto text-gray-900">Elisir</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">11:55</span>
+                        <span class="ml-auto text-gray-900">Meteo 3</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">12:00</span>
+                        <span class="ml-auto text-gray-900">Tg3 NOTIZIARIO.</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">12:25</span>
+                        <span class="ml-auto text-gray-900">TG3 Fuori TG</span>
+                    </div>
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">12:45</span>
+                        <span class="ml-auto text-gray-900">Quante storie</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">13:15</span>
+                        <span class="ml-auto text-gray-900">Passato e Presente</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">14:00</span>
+                        <span class="ml-auto text-gray-900">Tg Regione NOTIZIARIO.</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">14:18</span>
+                        <span class="ml-auto text-gray-900">Tg Regione NOTIZIARIO.</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">14:20</span>
+                        <span class="ml-auto text-gray-900">Tg3 NOTIZIARIO.</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">14:49</span>
+                        <span class="ml-auto text-gray-900">Meteo 3</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">14:50</span>
+                        <span class="ml-auto text-gray-900">TGR Leonardo</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">15:05</span>
+                        <span class="ml-auto text-gray-900">TGR Piazza Affari</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">15:15</span>
+                        <span class="ml-auto text-gray-900">TG3 LIS NOTIZIARIO.</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">15:20</span>
+                        <span class="ml-auto text-gray-900">Tg Parlamento NOTIZIARIO.</span>
+                    </div>
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">15:25</span>
+                        <span class="ml-auto text-gray-900">#Maestri</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">16:05</span>
+                        <span class="ml-auto text-gray-900">Geo</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">18:55</span>
+                        <span class="ml-auto text-gray-900">Meteo 3</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">19:00</span>
+                        <span class="ml-auto text-gray-900">Tg3 NOTIZIARIO.</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">19:30</span>
+                        <span class="ml-auto text-gray-900">Tg Regione TG Regionale.</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">19:51</span>
+                        <span class="ml-auto text-gray-900">Tg Regione NOTIZIARIO.</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">20:00</span>
+                        <span class="ml-auto text-gray-900">Blob</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">20:20</span>
+                        <span class="ml-auto text-gray-900">Che succ3de?</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">20:45</span>
+                        <span class="ml-auto text-gray-900">Un posto al sole</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">21:20</span>
+                        <span class="ml-auto text-gray-900">Chi l'ha visto?</span>
+                    </div>
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">00:00</span>
+                        <span class="ml-auto text-gray-900">Tg3 Linea Notte NOTIZIARIO.</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">00:10</span>
+                        <span class="ml-auto text-gray-900">Tg Regione NOTIZIARIO.</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">00:13</span>
+                        <span class="ml-auto text-gray-900">Tg3 Linea Notte NOTIZIARIO.</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">01:00</span>
+                        <span class="ml-auto text-gray-900">Meteo 3</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">01:05</span>
+                        <span class="ml-auto text-gray-900">Parlamento Magazine RUBRICA. - A cura di Rai Parlamento</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">01:10</span>
+                        <span class="ml-auto text-gray-900">SeDici Storie</span>
+                    </div>
+
+                    <div class="flex border-t border-gray-400 py-2">
+                        <span class="text-gray-500">02:05</span>
+                        <span class="ml-auto text-gray-900">RaiNews NOTIZIARIO.</span>
+                    </div>
                 </div>
                 <div x-show="openTab === 3" class="overflow-scroll h-0 lg:h-80 pr-3">
-                    Una prima serata che tra ironia e comicità ripercorre i fatti più importanti della
-                    settimana,offrendo uno sguardo sagace, tagliente, sui principali av...
+                    La storica trasmissione di servizio pubblico dedicata alla ricerca di persone scomparse e ai misteri
+                    ancora insoluti, con ricostruzioni filmate e la possibilita' di telefonare in diretta.
                 </div>
             </div>
-            <div class="flex lg:flex-col lg:w-1/2 w-full space-x-2"
-                 x-show="openTab === 3"
-                 :class="openTab === 3 ? 'h-96 bg-gray-200' : ''">
+            <div class="lg:flex-col lg:w-1/2 w-full space-x-2"
+                 x-show="openTab === 3 || openTab === 1"
+                 :class="openTab === 3 ? 'h-96 bg-gray-200' : 'hidden lg:block'">
                 <div>
                     <h2 class="text-sm title-font text-gray-500 tracking-widest">21:20</h2>
                 </div>
                 <div class="flex-1 py-3">
-                    <h1 class="text-gray-900 text-2xl title-font font-medium mb-4">Quelli che... (Show)</h1>
-                    <img alt="ecommerce" class="w-full h-32 md:h-64 object-cover object-center rounded"
-                         src="https://www.staseraintv.com/scheda/Show/q/quelli_che___/thumb/quelli_che_thumb.jpg">
+                    <h1 class="text-gray-900 text-2xl title-font font-medium mb-4">Chi l'ha visto? (Attualita')</h1>
+                    <img alt="ecommerce"
+                         class="w-auto lg:w-full h-32 md:h-64 object-cover object-center rounded float-left mr-2 mb-2"
+                         src="images/rai_3_thumb.jpeg">
+                    <div class="lg:hidden">
+                        La storica trasmissione di servizio pubblico dedicata alla ricerca di persone scomparse e ai
+                        misteri ancora insoluti, con ricostruzioni filmate e la possibilita' di telefonare in diretta.
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-
-<footer class="bg-gray-700 flex flex-col justify-center p-12">
+<!--FOOTER-->
+<footer class="bg-gray-700 flex flex-col justify-center p-8">
     <div class="flex container flex-col lg:flex-row lg:space-x-12">
-        <div class="flex w-full lg:w-3/5 py-4 lg:py-12 flex-col text-sm text-gray-400">
+        <div class="flex w-full py-2 lg:py-6 flex-col text-sm text-gray-400">
             <p class="font-bold" x-data="{year: new Date().getFullYear()}">
                 &copy; <span x-text="year"></span> Company. All rights reserved. | All rights reserved
             </p>
             <p>
                 Our Website uses cookies from Google services. By continuing to use this site you are agreeing to our
                 use of cookies.
-            </p>
-            <p>
-                Find out more by viewing our <a href="#" class="font-bold"> Privacy Policy</a>
-            </p>
-        </div>
-        <div class="flex-1 pb-4 lg:py-12">
-            <p class="text-sm text-gray-400"><br>
-                Ricordiamo che le emittenti possono variare le programmazioni senza preavviso.
-                I marchi, loghi, segni distintivi, colori, rappresentati, appartengono ai legittimi proprietari.
+                Find out more by viewing our <a href="#" class="font-bold">Privacy Policy</a>
             </p>
         </div>
     </div>
